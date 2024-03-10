@@ -1,0 +1,52 @@
+site_name: icanhazdadjoke API
+site_url:
+
+nav:
+  - Overview: 'index.md'
+  - API reference: 'oas.md'
+  - 'Tutorials':
+    - 'Searching for jokes': 'tutorial.md'
+
+theme:
+  name: material
+  logo: assets/smile.svg
+  favicon: assets/favicon.png
+  features:
+    ## - navigation.tabs
+  palette:
+
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - css/mkdocsoad.css
+
+copyright: Brad Dow 2024 for Interledger Writing Test
+
+plugins:
+  - search
+  - neoteroi.mkdocsoad:
+      use_pymdownx: true
