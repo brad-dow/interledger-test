@@ -1,0 +1,103 @@
+openapi: 3.0.3
+info:
+  title: icanhazdadjoke API - OpenAPI 3.0
+  description: Looking for some dad jokes? You've come to the right place!
+  contact:
+    email: bradley.s.dow@gmail.com
+
+servers:
+  - url: https://icanhazdadjoke.com
+    description: Production server
+
+paths:
+  /search:
+    get:
+      summary: Search dad jokes
+      description: Retrieve one or more dad jokes that meet the search criteria.
+      operationId: searchJokes
+      required: false
+      parameters:
+        - name: page
+          nullable: false
+          default: 100
+          in: query
+          description: Page number of results to retrieve - Works in tandem with the limit parameter
+          required: false
+          default: 100
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          description: Number of results to return per page - If not specified, 20 results are returned by default (maximum of 30)
+          required: false
+          default: 20
+          schema:
+            type: integer
+        - name: term
+          in: query
+          description: Search term - If not specified, all jokes are retrieved
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/searchResults'          
+
+components:
+  schemas:
+    searchResults:
+      type: object
+      properties:
+        current_page:
+          type: integer
+          example: 1
+        limit:
+          type: integer
+          example: 20
+        next_page:
+          type: integer
+          example: 1
+        previous_page:
+          type: integer
+          example: 1
+        results:
+          $ref: '#/components/schemas/jokesArray'
+        search_term:
+          type: string
+          example: write
+        status:
+          type: integer
+          example: 200
+        total_jokes:
+          type: integer
+          example: 4
+        total_pages:
+          type: integer
+          example: 1
+    jokesArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/jokes'
+      example:
+        - id: OCtWnGJtPuc
+          joke: Why is the new Kindle screen textured to look like paper? So you feel write at home.
+        - id: O7haxA5Tfxc
+          joke: Where do cats write notes? Scratch Paper!
+        - id: EYo4TCAdUf
+          joke: I tried to write a chemistry joke, but could never get a reaction.
+        - id: SvPRCIeiNuc
+          joke: How does a dyslexic poet write? Inverse.
+    jokes:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier of a single dad joke
+          example: 1
+        joke:
+          type: string
+          description: The dad joke
+          example: 1
