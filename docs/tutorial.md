@@ -96,7 +96,7 @@ Where do cats write notes? Scratch Paper!
 ### Pagination parameters
 As the database of dad jokes continues to increase at a rapid pace, it's important to handle the search results in an elegant manner. If you query the `/search` endpoint without setting a search `term`, the response contains every dad joke available. By default, the search results are limited to 20 dad jokes per page with the first page of results being displayed.
 
-!!! note "Maximum `limit` value
+!!! note "Maximum `limit` value"
     
     The maximum value for `limit` is 30 search results.
 
