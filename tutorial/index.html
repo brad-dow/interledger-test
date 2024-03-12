@@ -547,9 +547,10 @@
 </div>
 <h3 id="pagination-parameters">Pagination parameters</h3>
 <p>As the database of dad jokes continues to increase at a rapid pace, it's important to handle the search results in an elegant manner. If you query the <code>/search</code> endpoint without setting a search <code>term</code>, the response contains every dad joke available. By default, the search results are limited to 20 dad jokes per page with the first page of results being displayed.</p>
-<p>!!! note "Maximum <code>limit</code> value</p>
-<div class="language-text highlight"><pre><span></span><code>The maximum value for `limit` is 30 search results.
-</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Maximum <code>limit</code> value</p>
+<p>The maximum value for <code>limit</code> is 30 search results.</p>
+</div>
 <p>In the example below, let's omit our search criteria to retrieve the maximum amount of dad jokes. We will set the following pagination parameters:</p>
 <ul>
 <li><code>limit</code> is set to "5" results</li>
